@@ -1,0 +1,210 @@
+{
+  "id": "function",
+  "renderer": "function",
+  "navSubtitle": "教材第2章 · 期中",
+  "number": "02",
+  "title": "函数极限与连续",
+  "en": "FUNCTION LIMITS",
+  "subtitle": "靠近一个点，看清左右的方向。",
+  "description": "让 x 从两侧趋近，观察函数值是否走向同一个答案。",
+  "chartTitle": "靠近，但不必到达",
+  "chartSubtitle": "移动点的位置，比较左右两侧的函数值。",
+  "models": [
+    {
+      "id": "hole",
+      "label": "可去间断",
+      "short": "(x²−1)/(x−1)",
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mfrac><mrow><msup><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msup><mo>−</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><munder><mo>lim</mo><mrow><mi>x</mi><mo>→</mo><mn>1</mn></mrow></munder><mfrac><mrow><msup><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msup><mo>−</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mn>2</mn></math>",
+      "steps": [
+        [
+          "找到空心点",
+          "x = 1 时分母为 0，原函数没有定义。空心点提醒你：这个位置不属于函数图像。"
+        ],
+        [
+          "从左右同时靠近",
+          "令 x = 1−h 和 x = 1+h。缩小 h，可以看到左右两侧的函数值都趋近于 2。"
+        ],
+        [
+          "建立 ε 与 δ 的关系",
+          "当 x ≠ 1，f(x) = x+1，所以 |f(x)−2| = |x−1|。取 δ = ε，0 < |x−1| < δ 就能保证输出误差小于 ε。"
+        ],
+        [
+          "区分函数值与极限",
+          "极限只取决于点附近的行为。即使 f(1) 未定义，x→1 的极限仍然存在并等于 2。"
+        ]
+      ],
+      "economics": [
+        "从平均变化，走向边际变化",
+        "设总成本 C(x)=x²，则 (C(x)−C(1))/(x−1) 是从产量 1 到 x 的平均成本变化率。令 x→1，就得到该点的边际成本 2。"
+      ]
+    },
+    {
+      "id": "sinc",
+      "label": "经典极限",
+      "short": "sin x/x",
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mfrac><mrow><mi>sin</mi><mi>x</mi></mrow><mrow><mi>x</mi></mrow></mfrac></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><munder><mo>lim</mo><mrow><mi>x</mi><mo>→</mo><mn>0</mn></mrow></munder><mfrac><mrow><mi>sin</mi><mi>x</mi></mrow><mrow><mi>x</mi></mrow></mfrac><mo>=</mo><mn>1</mn></math>",
+      "steps": [
+        [
+          "统一角度单位",
+          "本实验里的 x 使用弧度。当 x = 0 时，sin(x)/x 无定义，图上用空心点标记。"
+        ],
+        [
+          "从两个方向观察",
+          "函数是偶函数。左右相同距离处的函数值相同，并随着距离减小而趋近 1。"
+        ],
+        [
+          "给出充分的 δ",
+          "利用 |sin(x)/x−1| ≤ x²/6，取 δ = min(1, √(6ε))。当 0 < |x| < δ 时，函数误差严格小于 ε。"
+        ],
+        [
+          "记住条件",
+          "这个经典极限等于 1，前提是角度以弧度计。图形用于理解，误差界提供解析上的保证。"
+        ]
+      ],
+      "economics": [
+        "理解「局部线性近似」",
+        "sin x/x→1 说明在 0 附近 sin x≈x。把复杂关系在小范围内近似为线性关系，是学习边际分析和经济模型局部近似的起点。"
+      ]
+    },
+    {
+      "id": "jump",
+      "label": "左右不相等",
+      "short": "sgn x",
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mfrac><mrow><mi>x</mi></mrow><mrow><mo>|</mo><mi>x</mi><mo>|</mo></mrow></mfrac></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><munder><mo>lim</mo><mrow><mi>x</mi><mo>→</mo><mn>0</mn></mrow></munder><mfrac><mrow><mi>x</mi></mrow><mrow><mo>|</mo><mi>x</mi><mo>|</mo></mrow></mfrac><mtext> 不存在</mtext></math>",
+      "steps": [
+        [
+          "观察两段图像",
+          "当 x < 0，f(x) = −1；当 x > 0，f(x) = 1。在 x = 0 处不定义。"
+        ],
+        [
+          "分别观察左右极限",
+          "从左侧趋近 0，函数值始终为 −1；从右侧趋近 0，函数值始终为 1。"
+        ],
+        [
+          "缩小距离也无济于事",
+          "无论 h 多小，两侧函数值的差都是 2。仅仅更靠近 0，不能消除跳跃。"
+        ],
+        [
+          "得出不存在的结论",
+          "有限双侧极限存在，当且仅当左右极限都存在且相等。本例左右不相等，因此双侧极限不存在。"
+        ]
+      ],
+      "economics": [
+        "遇到门槛，检查左右两侧",
+        "具有门槛规则的补贴或价格模型可能发生跳跃。分析阈值附近的变化时，应分别看左侧与右侧，不能直接假定一个共同极限。"
+      ]
+    }
+  ],
+  "definition": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mn>0</mn><mo><</mo><mo>|</mo><mi>x</mi><mo>−</mo><mi>a</mi><mo>|</mo><mo><</mo><mi>δ</mi><mo>⇒</mo><mo>|</mo><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>−</mo><mi>L</mi><mo>|</mo><mo><</mo><mi>ε</mi></math>",
+  "concept": "对任意 ε > 0，能找到 δ > 0 保证这个关系。关注的是点附近的值，不要求函数在该点有定义。",
+  "questions": [
+    {
+      "id": "fun-1",
+      "title": "函数没定义，极限还存在吗？",
+      "body": "函数 f(x) = (x²−1)/(x−1) 在 x→1 时的极限是多少？",
+      "type": "number",
+      "answer": 2,
+      "tolerance": 0.001,
+      "unit": "L =",
+      "hint": "x ≠ 1 时，把分子分解成 (x−1)(x+1)。",
+      "explanation": "极限为 2。x ≠ 1 时原式等于 x+1；f(1) 没有定义不影响附近函数值的趋向。",
+      "section": "2.2"
+    },
+    {
+      "id": "fun-2",
+      "title": "左右相遇，才能得到什么？",
+      "body": "若一个函数在 x→0⁻ 时趋于 −1，在 x→0⁺ 时趋于 1，那么 x→0 的双侧极限是？",
+      "type": "choice",
+      "choices": [
+        "0，取左右平均",
+        "1，取右侧极限",
+        "不存在"
+      ],
+      "answer": 2,
+      "hint": "双侧极限需要左右极限存在且相等。",
+      "explanation": "不存在。左右极限不相等，不能取平均，也不能只选其中一侧。",
+      "section": "2.2"
+    },
+    {
+      "id": "fun-3",
+      "title": "给输入范围一个保证",
+      "body": "对 f(x)=(x²−1)/(x−1)，在 x→1 时要求 |f(x)−2|<0.05。以下哪一个 δ 能保证 0<|x−1|<δ 时满足要求？",
+      "type": "choice",
+      "choices": [
+        "δ = 0.05",
+        "δ = 0.5",
+        "δ = 1"
+      ],
+      "answer": 0,
+      "hint": "在 x≠1 时，|f(x)−2| 正好等于 |x−1|。",
+      "explanation": "可以取 δ = 0.05，因为输出误差与输入距离相等。更小的正 δ 也可以。",
+      "section": "2.2"
+    },
+    {
+      "id": "fun-4",
+      "title": "用等价无穷小求极限",
+      "body": "x→0 时，(eˣ−1)/sin x 的极限是多少？",
+      "type": "number",
+      "answer": 1,
+      "hint": "分子与分母分别等价于 x。",
+      "explanation": "eˣ−1~x，sin x~x，所以比值趋于 1。",
+      "tolerance": 0.001,
+      "unit": "答案 =",
+      "section": "2.6"
+    },
+    {
+      "id": "fun-5",
+      "title": "补成连续函数",
+      "body": "x≠1 时 f(x)=(x²−1)/(x−1)，令 f(1)=k。使 f 在 1 连续的 k 是多少？",
+      "type": "number",
+      "answer": 2,
+      "hint": "连续要求函数值等于极限。",
+      "explanation": "附近函数值趋于 2，所以必须 k=2。",
+      "tolerance": 0.001,
+      "unit": "答案 =",
+      "section": "2.7"
+    },
+    {
+      "id": "fun-6",
+      "title": "先看夹逼条件",
+      "body": "|f(x)|≤x²（x≠0），则 x→0 时 f(x) 的极限是多少？",
+      "type": "number",
+      "answer": 0,
+      "hint": "−x²≤f(x)≤x²。",
+      "explanation": "上下界都趋于 0，由夹逼准则可得极限为 0。",
+      "tolerance": 0.001,
+      "unit": "答案 =",
+      "section": "2.5"
+    },
+    {
+      "id": "fun-7",
+      "title": "闭区间连续的保证",
+      "body": "连续函数 f 在 [1,2] 上满足 f(1)<0<f(2)，可以保证什么？",
+      "type": "choice",
+      "answer": 1,
+      "hint": "应用零点存在定理。",
+      "explanation": "至少存在一个零点；没有单调性等条件时不能保证唯一。",
+      "choices": [
+        "恰有一个零点",
+        "至少有一个零点",
+        "没有零点"
+      ],
+      "section": "2.8"
+    },
+    {
+      "id": "fun-8",
+      "title": "等价无穷小要注意阶数",
+      "body": "x→0 时，(1−cos x)/x² 的极限是多少？",
+      "type": "number",
+      "answer": 0.5,
+      "hint": "1−cos x~x²/2。",
+      "explanation": "极限为 1/2，不能把 cos x~1 直接替入差式而得 0。",
+      "tolerance": 0.001,
+      "unit": "答案 =",
+      "section": "2.6"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "id": "sequence",
+  "renderer": "sequence",
+  "navSubtitle": "教材第2章 · 期中",
+  "number": "02",
+  "title": "数列极限",
+  "en": "SEQUENCE LIMITS",
+  "subtitle": "一项一项，靠近一个确定的值。",
+  "description": "拖动滑块，让抽象的「无限趋近」变成看得见的过程。",
+  "chartTitle": "让收敛，变得可见",
+  "chartSubtitle": "每一个点，都是数列中的一项。",
+  "models": [
+    {
+      "id": "reciprocal",
+      "label": "倒数数列",
+      "short": "1/n",
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msub><mrow><mi>a</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mi>n</mi></mrow></mfrac></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><munder><mo>lim</mo><mrow><mi>n</mi><mo>→</mo><mo>∞</mo></mrow></munder><mfrac><mrow><mn>1</mn></mrow><mrow><mi>n</mi></mrow></mfrac><mo>=</mo><mn>0</mn></math>",
+      "steps": [
+        [
+          "先认识每一项",
+          "从 a₁ = 1 开始，分母每增加 1，数列就多产生一项。图上的点是离散的，不是连续曲线。"
+        ],
+        [
+          "画出允许的误差",
+          "绿色带表示极限 0 上下各 ε 的范围。ε 越小，意味着我们要求数列靠得越近。"
+        ],
+        [
+          "找到一个分界 N",
+          "取 N = ⌊1/ε⌋。当 n > N 时，1/n < ε，此后的所有项都落在绿色带内。边界使用严格不等式。"
+        ],
+        [
+          "从图像走向定义",
+          "任意给定 ε > 0，总能找到这样的 N，这才是数列收敛到 0 的含义。有限张图提供直觉，不代替证明。"
+        ]
+      ],
+      "economics": [
+        "固定成本，被慢慢摊薄",
+        "若固定成本为 F，生产 n 件产品时，每件分摊的固定成本是 F/n。产量增加，这一部分平均成本趋近于 0；这不代表总平均成本为 0。"
+      ]
+    },
+    {
+      "id": "alternating",
+      "label": "交错数列",
+      "short": "(−1)ⁿ/n",
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msub><mrow><mi>a</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><mfrac><mrow><msup><mrow><mrow><mo>(</mo><mo>−</mo><mn>1</mn><mo>)</mo></mrow></mrow><mrow><mi>n</mi></mrow></msup></mrow><mrow><mi>n</mi></mrow></mfrac></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><munder><mo>lim</mo><mrow><mi>n</mi><mo>→</mo><mo>∞</mo></mrow></munder><mfrac><mrow><msup><mrow><mrow><mo>(</mo><mo>−</mo><mn>1</mn><mo>)</mo></mrow></mrow><mrow><mi>n</mi></mrow></msup></mrow><mrow><mi>n</mi></mrow></mfrac><mo>=</mo><mn>0</mn></math>",
+      "steps": [
+        [
+          "允许左右摆动",
+          "a₁ = −1，a₂ = 1/2。数列在 0 两侧交替出现，所以收敛不要求单调。"
+        ],
+        [
+          "关注距离，而非符号",
+          "每一项到 0 的距离都是 1/n。虽然符号变化，振幅却不断缩小。"
+        ],
+        [
+          "找到同一个 N",
+          "仍然取 N = ⌊1/ε⌋。只要 n > N，就有 |(−1)ⁿ/n| = 1/n < ε。"
+        ],
+        [
+          "辨别摆动与发散",
+          "振幅衰减的摆动可以收敛；(−1)ⁿ 的振幅始终是 1，所以它不收敛。"
+        ]
+      ],
+      "economics": [
+        "波动，不一定远离均衡",
+        "把它看作一个简化的均衡偏差：每期正负交替，但偏差幅度越来越小。这个例子帮助理解收敛，不代表所有市场都会自动达到均衡。"
+      ]
+    },
+    {
+      "id": "compound",
+      "label": "复利与 e",
+      "short": "(1+1/n)ⁿ",
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msub><mrow><mi>a</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><msup><mrow><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mi>n</mi></mrow></mfrac><mo>)</mo></mrow></mrow><mrow><mi>n</mi></mrow></msup></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><munder><mo>lim</mo><mrow><mi>n</mi><mo>→</mo><mo>∞</mo></mrow></munder><msup><mrow><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mi>n</mi></mrow></mfrac><mo>)</mo></mrow></mrow><mrow><mi>n</mi></mrow></msup><mo>=</mo><mi>e</mi></math>",
+      "steps": [
+        [
+          "把一年拆成 n 期",
+          "本金为 1、名义年利率为 100%，每年计息 n 次，年末本利和为 (1+1/n)ⁿ。这里的高利率仅用于展示数学常数。"
+        ],
+        [
+          "提高计息频率",
+          "增加 n，年末本利和持续增加，但不会无限变大，而是趋近 e ≈ 2.71828。"
+        ],
+        [
+          "使用可证明的误差界",
+          "对正整数 n，0 < e−(1+1/n)ⁿ < e/(2n)。取 N = ⌊e/(2ε)⌋ 即可保证 n > N 时误差小于 ε；这只是充分的 N。"
+        ],
+        [
+          "推广到连续复利",
+          "本金 P、名义年利率 r、期限 t 年的连续复利终值是 Peʳᵗ。增加计息次数的过程，正是数列极限。"
+        ]
+      ],
+      "economics": [
+        "从按年计息，到连续复利",
+        "一年计息 n 次时，本金 P 的一年终值是 P(1+r/n)ⁿ。当 n 趋于无穷，终值趋于 Peʳ。图中展示 P=1、r=1 的教学情形。"
+      ]
+    }
+  ],
+  "definition": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mo>∀</mo><mi>ε</mi><mo>></mo><mn>0</mn><mo>,</mo><mo>∃</mo><mi>N</mi><mo>,</mo><mi>n</mi><mo>></mo><mi>N</mi><mo>⇒</mo><mo>|</mo><msub><mrow><mi>a</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>−</mo><mi>A</mi><mo>|</mo><mo><</mo><mi>ε</mi></math>",
+  "concept": "重点是「从某一项开始，后面的所有项都足够近」，而不是某一项恰好很近。",
+  "questions": [
+    {
+      "id": "seq-1",
+      "title": "分界点，应该放在哪里？",
+      "body": "对于 aₙ = 1/n，取 ε = 0.1。使所有 n > N 都满足 |aₙ| < 0.1 的最小非负整数 N 是多少？",
+      "type": "number",
+      "answer": 10,
+      "tolerance": 0,
+      "unit": "N =",
+      "hint": "注意 n > N，而不是 n ≥ N。可以先检查 n = 10。",
+      "explanation": "N = 10。n = 10 时误差等于 0.1，不满足严格小于；从 n = 11 开始才满足。",
+      "section": "2.1"
+    },
+    {
+      "id": "seq-2",
+      "title": "摆动的数列也能收敛吗？",
+      "body": "数列 aₙ = (−1)ⁿ/n 的极限是什么？",
+      "type": "choice",
+      "choices": [
+        "0",
+        "1",
+        "不存在，因为正负交替"
+      ],
+      "answer": 0,
+      "hint": "看绝对值 |aₙ| 如何变化。",
+      "explanation": "极限是 0。虽然正负交替，但 |aₙ| = 1/n → 0，两个方向都在靠近 0。",
+      "section": "2.1"
+    },
+    {
+      "id": "seq-3",
+      "title": "越来越频繁的复利",
+      "body": "本金为 1，名义年利率为 100%。一年中的计息次数无限增加，年末本利和趋向什么？",
+      "type": "choice",
+      "choices": [
+        "2",
+        "e ≈ 2.71828",
+        "正无穷"
+      ],
+      "answer": 1,
+      "hint": "切换到「复利与 e」，观察水平虚线。",
+      "explanation": "年末本利和为 (1+1/n)ⁿ，其极限是 e。计息次数无限多，不代表本利和无限大。",
+      "section": "2.5"
+    },
+    {
+      "id": "seq-4",
+      "title": "有界就能收敛吗？",
+      "body": "关于数列 (−1)ⁿ，哪个判断正确？",
+      "type": "choice",
+      "answer": 2,
+      "hint": "奇数项为 −1，偶数项为 1。",
+      "explanation": "它有界，但两个子序列趋于不同值，所以发散。",
+      "choices": [
+        "无界且发散",
+        "有界且收敛",
+        "有界但发散"
+      ],
+      "section": "2.1"
+    }
+  ]
+}

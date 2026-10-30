@@ -1,0 +1,157 @@
+{
+  "id": "integral",
+  "renderer": "integral",
+  "number": "06",
+  "title": "定积分预习",
+  "en": "INTEGRALS",
+  "navSubtitle": "期末阶段 · 部分上线",
+  "subtitle": "把无数个小变化，累积成整体。",
+  "description": "用矩形逐步逼近面积，再把定积分连接到净变化和现金流现值。",
+  "chartTitle": "从矩形，到一片面积",
+  "chartSubtitle": "比较左端点、中点和右端点取样，观察数值近似的误差。",
+  "defaults": {
+    "n": 8,
+    "upper": 2,
+    "rate": 0.1,
+    "method": "midpoint"
+  },
+  "definition": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msubsup><mo>∫</mo><mrow><mi>a</mi></mrow><mrow><mi>b</mi></mrow></msubsup><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>d</mi><mi>x</mi><mo>=</mo><mi>F</mi><mo>(</mo><mi>b</mi><mo>)</mo><mo>−</mo><mi>F</mi><mo>(</mo><mi>a</mi><mo>)</mo></math>",
+  "concept": "若 f 连续且 F′=f，则定积分等于 F(b)−F(a)。不定积分是一族原函数 F(x)+C；定积分是带符号的累计量。",
+  "models": [
+    {
+      "id": "area",
+      "label": "曲线下面积",
+      "short": "∫x² dx",
+      "defaults": {
+        "upper": 2
+      },
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msubsup><mo>∫</mo><mrow><mn>0</mn></mrow><mrow><mi>b</mi></mrow></msubsup><msup><mi>x</mi><mrow><mn>2</mn></mrow></msup><mi>d</mi><mi>x</mi></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msubsup><mo>∫</mo><mrow><mn>0</mn></mrow><mrow><mi>b</mi></mrow></msubsup><msup><mi>x</mi><mrow><mn>2</mn></mrow></msup><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mrow><msup><mi>b</mi><mrow><mn>3</mn></mrow></msup></mrow><mrow><mn>3</mn></mrow></mfrac></math>",
+      "steps": [
+        [
+          "先把区间等分",
+          "把 [0,b] 分成 n 个小区间，每个宽度 Δx=b/n。每个矩形的面积为 f(取样点)·Δx。"
+        ],
+        [
+          "换一种取样方式",
+          "x² 在 [0,b] 上递增，所以左端点和低估面积，右端点和高估；中点和通常更接近精确结果。"
+        ],
+        [
+          "增加分割数",
+          "n 增大时，矩形更窄，黎曼和趋近定积分。图中同时显示近似值和解析精确值。"
+        ],
+        [
+          "用原函数精确计算",
+          "x² 的一个原函数是 x³/3，所以 ∫₀ᵇx²dx=b³/3。原函数加任何常数，端点相减后常数都会消去。"
+        ]
+      ],
+      "economics": [
+        "从边际成本还原成本变化",
+        "若边际成本 MC(q)=q²，则从产量 0 增到 b 的成本增加量为 ∫₀ᵇq²dq=b³/3。总成本还需加上初始固定成本 C(0)。"
+      ]
+    },
+    {
+      "id": "signedArea",
+      "label": "带符号的面积",
+      "short": "∫x dx",
+      "defaults": {
+        "upper": 1
+      },
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msubsup><mo>∫</mo><mrow><mn>-1</mn></mrow><mrow><mi>b</mi></mrow></msubsup><mi>x</mi><mi>d</mi><mi>x</mi></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>∫₋₁ᵇ x dx=(b²−1)/2</mtext></math>",
+      "steps": [
+        [
+          "分清轴上与轴下",
+          "f(x)=x 在负半轴位于 x 轴下，贡献负的积分；正半轴位于轴上，贡献正的积分。"
+        ],
+        [
+          "观察正负抵消",
+          "b=1 时，左右两块几何面积相等，但符号相反，所以定积分为 0。"
+        ],
+        [
+          "零积分不等于没有面积",
+          "[-1,1] 上图形的几何总面积是 1；∫₋₁¹x dx=0 表示净累计量为 0，两者概念不同。"
+        ],
+        [
+          "从净流量理解积分",
+          "若函数表示净流入率，正值是流入，负值是流出。积分给出余额的净变化，累计流动总量需积分绝对值。"
+        ]
+      ],
+      "economics": [
+        "净现金流与总交易量",
+        "一段时间内流入与流出可以相互抵消，使净变化为 0；但资金流动总量并不为 0。带符号的积分恰好描述这种差别。"
+      ]
+    },
+    {
+      "id": "cashflow",
+      "label": "连续现金流",
+      "short": "∫Ce⁻ʳᵗdt",
+      "defaults": {
+        "upper": 5,
+        "rate": 0.1
+      },
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msubsup><mo>∫</mo><mrow><mn>0</mn></mrow><mrow><mi>T</mi></mrow></msubsup><mn>100</mn><msup><mi>e</mi><mrow><mo>−</mo><mi>r</mi><mi>t</mi></mrow></msup><mi>d</mi><mi>t</mi></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>PV=100(1−e⁻ʳᵀ)/r；r=0 时 PV=100T</mtext></math>",
+      "steps": [
+        [
+          "给每一刻的收入贴现",
+          "假设每年连续收到 100 单位收入，连续贴现率为 r。一小段 dt 的现值约为 100e⁻ʳᵗdt。"
+        ],
+        [
+          "把小额现值加起来",
+          "从 0 到 T 的现值是 ∫₀ᵀ100e⁻ʳᵗdt。矩形和就是把连续收入近似为若干小段。"
+        ],
+        [
+          "计算有限期限的现值",
+          "当 r>0，积分等于 100(1−e⁻ʳᵀ)/r。r 越高，同样的远期现金流现值越低。"
+        ],
+        [
+          "单独检查零贴现率",
+          "r=0 时不贴现，PV=100T。不能把 r=0 直接代入带分母 r 的表达式；使用极限或原积分处理。"
+        ]
+      ],
+      "economics": [
+        "连续流与离散年金的区别",
+        "这里假设现金流连续发生，贴现也连续进行。每年期末一次支付的离散年金应使用级数，付款时点不同，现值也可能不同。"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "int-1",
+      "title": "从原函数到定积分",
+      "body": "∫₀² x² dx 等于多少？可输入分数。",
+      "type": "number",
+      "answer": 2.6666666666666665,
+      "hint": "原函数为 x³/3，再代入上下限。",
+      "explanation": "结果为 8/3。F(2)−F(0)=8/3−0。",
+      "tolerance": 0.001,
+      "unit": "答案 ="
+    },
+    {
+      "id": "int-2",
+      "title": "定积分为零意味着什么？",
+      "body": "∫₋₁¹ x dx=0，正确解释是哪一项？",
+      "type": "choice",
+      "answer": 1,
+      "hint": "注意 x 轴上下两部分的符号。",
+      "explanation": "正负累计量抵消，净变化为 0；几何总面积仍为 1。",
+      "choices": [
+        "曲线与坐标轴之间没有面积",
+        "正负累计量相互抵消",
+        "被积函数处处为零"
+      ]
+    },
+    {
+      "id": "int-3",
+      "title": "零贴现率的现金流",
+      "body": "每年连续收入 100，持续 3 年，连续贴现率为 0。现值是多少？",
+      "type": "number",
+      "answer": 300,
+      "hint": "不贴现时，直接累计收入流。",
+      "explanation": "现值为 ∫₀³100dt=300。零贴现率必须单独处理，不能除以 r=0。",
+      "tolerance": 0.001,
+      "unit": "答案 ="
+    }
+  ]
+}

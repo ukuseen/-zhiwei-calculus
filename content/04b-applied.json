@@ -1,0 +1,200 @@
+{
+  "id": "applied",
+  "renderer": "applied",
+  "number": "03",
+  "title": "求导进阶",
+  "en": "DERIVATIVES IN MOTION",
+  "navSubtitle": "隐函数 · 参数 · 变化率",
+  "subtitle": "先写出关系，再把变化率联系起来。",
+  "description": "移动曲线上的点，观察切线方向；改变梯子底端速度，推算顶端怎样运动。",
+  "chartTitle": "把求导步骤放回图像中",
+  "chartSubtitle": "一条约束，连接多个变量的变化。",
+  "definition": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>参数：dy/dx=(dy/dt)/(dx/dt)，dx/dt≠0</mtext></math>",
+  "concept": "先明确对谁求导，再检查公式分母。遇到分母为 0 的位置需要单独分析；图像只帮助理解，不替代推导。",
+  "models": [
+    {
+      "id": "implicit",
+      "label": "隐函数的切线",
+      "short": "x²+y²=r²",
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>x²+y²=r²，y≥0</mtext></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>dy/dx=−x/y（y≠0）</mtext></math>",
+      "defaults": {
+        "a": 53.13,
+        "parameter": 5
+      },
+      "steps": [
+        [
+          "先确定曲线上的点",
+          "上半圆可以用角度 θ 定位：x=r cos θ，y=r sin θ。θ 在 0° 到 180° 之间。"
+        ],
+        [
+          "把 y 看成 x 的函数",
+          "对 x 求导得到 2x+2y·y′=0。y² 的导数必须用链式法则，不能把 y 当常数。"
+        ],
+        [
+          "求出切线斜率",
+          "当 y≠0 时，y′=−x/y。切线方程为 Y−y=y′(X−x)。移动观察点，检查斜率的符号。"
+        ],
+        [
+          "单独检查不能相除的位置",
+          "在 (±r,0) 处 y=0，不能使用商式得到有限导数。上半圆两端有竖直切线，有限的 dy/dx 不存在。"
+        ]
+      ],
+      "economics": [
+        "同一方法也适用于经济约束",
+        "等产量曲线或无差异曲线常写成隐式关系 F(x,y)=0。在相应条件成立时，可用隐函数求导研究保持总量不变时两种投入的替代关系。"
+      ]
+    },
+    {
+      "id": "parametric",
+      "label": "参数方程求导",
+      "short": "x=t²，y=t³",
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>x=t²，y=t³</mtext></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>dy/dx=3t/2（t≠0）</mtext></math>",
+      "defaults": {
+        "a": 1
+      },
+      "steps": [
+        [
+          "先看共同的参数",
+          "t 同时决定两个坐标：x=t²，y=t³。负的 t 对应下分支，正的 t 对应上分支。"
+        ],
+        [
+          "分别对参数求导",
+          "dx/dt=2t，dy/dt=3t²。它们描述沿曲线运动时的两个速度分量。"
+        ],
+        [
+          "相除得到斜率",
+          "只要 dx/dt≠0，dy/dx=(dy/dt)/(dx/dt)=3t/2。注意 t<0 时斜率为负。"
+        ],
+        [
+          "参数速度为零时另作判断",
+          "t=0 时两个速度都为 0，不能直接用 0/0。此处可另看割线斜率 y/x=t→0，得到水平切线；整条曲线不是单值函数 y=f(x)。"
+        ]
+      ],
+      "economics": [
+        "按时间观察经济量",
+        "如果产量 q(t) 与成本 C(t) 都随时间变化，且 q′(t)≠0，则 dC/dq=C′(t)/q′(t)。这不是单纯的时间变化率 dC/dt。"
+      ]
+    },
+    {
+      "id": "related",
+      "label": "相关变化率",
+      "short": "梯子靠墙",
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>x²+y²=25</mtext></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>dy/dt=−(x/y)·dx/dt</mtext></math>",
+      "defaults": {
+        "x": 3,
+        "rate": 1
+      },
+      "steps": [
+        [
+          "先画图并建立关系",
+          "梯长固定 5 米，底端距墙 x，顶端高 y。由勾股定理，x²+y²=25。"
+        ],
+        [
+          "对时间求导",
+          "x、y 都随时间变化，因此 2x·dx/dt+2y·dy/dt=0。不要先把 x、y 的瞬时数值当常量代入。"
+        ],
+        [
+          "代入此刻的状态",
+          "dy/dt=−(x/y)·dx/dt。在 x=3、y=4、dx/dt=1 时，dy/dt=−0.75 米/秒。"
+        ],
+        [
+          "检查符号、单位和极端位置",
+          "底端向外时顶端下降，所以 dy/dt≤0。越接近地面，下降速度的绝对值越大；y=0 处该公式失效，滑块不取该点。"
+        ]
+      ],
+      "economics": [
+        "从变化率连接经济变量",
+        "若收入 R=P·Q，且价格和销量都随时间变化，则 dR/dt=Q·dP/dt+P·dQ/dt。相关变化率题先列关系，再对共同变量求导。"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "applied-1",
+      "title": "隐函数的导数",
+      "body": "x²+y²=9，在点 (0,3) 处 dy/dx 是多少？",
+      "answer": 0,
+      "section": "3.4",
+      "hint": "对 x 求导得到 2x+2yy′=0。",
+      "explanation": "y′=−x/y，代入 (0,3) 得 0，切线水平。",
+      "type": "number",
+      "unit": "答案",
+      "tolerance": 0.0001
+    },
+    {
+      "id": "applied-2",
+      "title": "竖直切线的特殊位置",
+      "body": "上半圆 x²+y²=9 在 (3,0) 处，可以直接用 −x/y 得到有限导数吗？",
+      "answer": 1,
+      "section": "3.4",
+      "hint": "分母 y=0，不能相除。",
+      "explanation": "该点有竖直切线，但没有有限的 dy/dx。",
+      "type": "choice",
+      "unit": "答案",
+      "tolerance": 0.0001,
+      "choices": [
+        "可以，导数为 −3",
+        "不可以，分母为 0",
+        "可以，导数为 0",
+        "可以，导数为 3"
+      ]
+    },
+    {
+      "id": "applied-3",
+      "title": "参数导数的符号",
+      "body": "x=t²，y=t³。在 t=−2 时 dy/dx 是多少？",
+      "answer": -3,
+      "section": "3.4",
+      "hint": "分别求导，再用 (dy/dt)/(dx/dt)。",
+      "explanation": "dx/dt=−4，dy/dt=12，因此 dy/dx=−3。",
+      "type": "number",
+      "unit": "答案",
+      "tolerance": 0.0001
+    },
+    {
+      "id": "applied-4",
+      "title": "参数公式的适用条件",
+      "body": "参数方程求 dy/dx=(dy/dt)/(dx/dt) 时，需要哪个条件？",
+      "answer": 0,
+      "section": "3.4",
+      "hint": "商的分母不能等于 0。",
+      "explanation": "需要 dx/dt≠0。若为 0，应另行分析，不能直接推断不存在切线。",
+      "type": "choice",
+      "unit": "答案",
+      "tolerance": 0.0001,
+      "choices": [
+        "dx/dt≠0",
+        "dy/dt≠0",
+        "t>0",
+        "x 和 y 必须相等"
+      ]
+    },
+    {
+      "id": "applied-5",
+      "title": "下降速度",
+      "body": "长 5 米的梯子底端距墙 4 米，以 1.5 米/秒向外移动，顶端高度的变化率是多少米/秒？",
+      "answer": -2,
+      "section": "3.4",
+      "hint": "此时 y=√(25−16)=3。",
+      "explanation": "dy/dt=−(4/3)×1.5=−2 米/秒。",
+      "type": "number",
+      "unit": "答案",
+      "tolerance": 0.0001
+    },
+    {
+      "id": "applied-6",
+      "title": "相关变化率也用乘积法则",
+      "body": "收入 R=P·Q。此时 P=10、Q=20、dP/dt=1、dQ/dt=−2，求 dR/dt。",
+      "answer": 0,
+      "section": "3.4",
+      "hint": "P 和 Q 都是时间的函数。",
+      "explanation": "dR/dt=Q·dP/dt+P·dQ/dt=20×1+10×(−2)=0。",
+      "type": "number",
+      "unit": "答案",
+      "tolerance": 0.0001
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "id": "series",
+  "renderer": "series",
+  "navSubtitle": "不在本册目录主线",
+  "number": "拓展",
+  "title": "无穷级数",
+  "en": "INFINITE SERIES",
+  "subtitle": "无穷次相加，也能有一个有限的和。",
+  "description": "观察部分和如何变化，分清「项趋于零」与「和收敛」。",
+  "chartTitle": "把无限，逐项相加",
+  "chartSubtitle": "每一个点，代表前 n 项的和 Sₙ。",
+  "models": [
+    {
+      "id": "geometric",
+      "label": "几何级数",
+      "short": "Σqᵏ",
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msub><mrow><mi>S</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></munderover><msup><mrow><mi>q</mi></mrow><mrow><mi>k</mi></mrow></msup></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mrow><mo>∞</mo></mrow></munderover><msup><mrow><mi>q</mi></mrow><mrow><mi>k</mi></mrow></msup><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>1</mn><mo>−</mo><mi>q</mi></mrow></mfrac><mtext>，|q| < 1</mtext></math>",
+      "steps": [
+        [
+          "先看有限次相加",
+          "前 n 项和为 Sₙ = 1+q+⋯+qⁿ⁻¹。注意本例从 q⁰ = 1 开始，n 表示项数。"
+        ],
+        [
+          "改变公比 q",
+          "|q| < 1 时，qⁿ→0；q 为负时，部分和在极限两侧摆动。拖动公比，观察差异。"
+        ],
+        [
+          "用公式判断收敛",
+          "q ≠ 1 时，Sₙ = (1−qⁿ)/(1−q)。仅当 |q| < 1，极限才是 1/(1−q)，误差是 |qⁿ/(1−q)|。"
+        ],
+        [
+          "检查边界情形",
+          "q = 1 时 Sₙ = n；q = −1 时部分和在 1 和 0 之间摆动。它们都发散，所以条件不能写成 |q| ≤ 1。"
+        ]
+      ],
+      "economics": [
+        "把未来的收入，折算到今天",
+        "每年期末收到 C、贴现率 r>0 时，永续年金现值为 C/(1+r)+C/(1+r)²+⋯=C/r。令 q=1/(1+r)，便得到几何级数；注意图中首项是 1。"
+      ]
+    },
+    {
+      "id": "harmonic",
+      "label": "调和级数",
+      "short": "Σ1/k",
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msub><mrow><mi>S</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><mfrac><mrow><mn>1</mn></mrow><mrow><mi>k</mi></mrow></mfrac></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mo>∞</mo></mrow></munderover><mfrac><mrow><mn>1</mn></mrow><mrow><mi>k</mi></mrow></mfrac><mo>=</mo><mo>+</mo><mo>∞</mo></math>",
+      "steps": [
+        [
+          "每项确实趋于零",
+          "1/k 随 k 增大趋于 0，但我们关心的是不断相加后的部分和，而不只是新增的一项。"
+        ],
+        [
+          "观察越来越慢的增长",
+          "Sₙ 持续增加，增长速度却不断减慢。有限窗口里看起来变平，不等于收敛。"
+        ],
+        [
+          "把项分组",
+          "1/3+1/4 > 1/2，1/5+⋯+1/8 > 1/2。按项数翻倍分组，每组至少增加 1/2，因此和无界。"
+        ],
+        [
+          "记住必要条件",
+          "级数收敛 ⇒ 通项趋于 0；反过来不成立。调和级数就是最经典的反例。"
+        ]
+      ],
+      "economics": [
+        "微小增量，也可能无限累积",
+        "即使每期新增量不断下降，累计量仍可能无界。分析长期总效应时，仅知道单期影响趋于 0，还不足以判断总和收敛。"
+      ]
+    },
+    {
+      "id": "alternatingHarmonic",
+      "label": "交错调和",
+      "short": "Σ(−1)ᵏ⁺¹/k",
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msub><mrow><mi>S</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><mfrac><mrow><msup><mrow><mrow><mo>(</mo><mo>−</mo><mn>1</mn><mo>)</mo></mrow></mrow><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><mrow><mi>k</mi></mrow></mfrac></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mo>∞</mo></mrow></munderover><mfrac><mrow><msup><mrow><mrow><mo>(</mo><mo>−</mo><mn>1</mn><mo>)</mo></mrow></mrow><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><mrow><mi>k</mi></mrow></mfrac><mo>=</mo><mi>ln</mi><mn>2</mn></math>",
+      "steps": [
+        [
+          "让正负项交替出现",
+          "1−1/2+1/3−1/4+⋯，从正的第一项开始。图中部分和交替位于极限上下两侧。"
+        ],
+        [
+          "检查交错级数条件",
+          "项的绝对值 1/k 单调下降且趋于 0，因此由莱布尼茨判别法可知原级数收敛。"
+        ],
+        [
+          "估计还剩多少误差",
+          "前 n 项和与总和的距离不超过下一项的绝对值：|Sₙ−ln 2| ≤ 1/(n+1)。"
+        ],
+        [
+          "区分条件收敛",
+          "本级数收敛到 ln 2；但取绝对值后成为发散的调和级数。因此它是条件收敛，而非绝对收敛。"
+        ]
+      ],
+      "economics": [
+        "相互抵消，可以改变累计结果",
+        "正负效应交替出现时，总效应可能收敛，即使各期效应绝对值的总和发散。实际应用必须检查符号和顺序，不能随意重排条件收敛级数。"
+      ]
+    }
+  ],
+  "definition": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><msub><mrow><mi>S</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><msub><mrow><mi>u</mi></mrow><mrow><mi>k</mi></mrow></msub><mo>,</mo><munder><mo>lim</mo><mrow><mi>n</mi><mo>→</mo><mo>∞</mo></mrow></munder><msub><mrow><mi>S</mi></mrow><mrow><mi>n</mi></mrow></msub><mo>=</mo><mi>S</mi></math>",
+  "concept": "无穷级数收敛，是指部分和数列收敛到有限值 S。有限次计算本身不能证明收敛。",
+  "questions": [
+    {
+      "id": "ser-1",
+      "title": "无限相加的有限答案",
+      "body": "几何级数 1+1/2+1/4+1/8+⋯ 的和是多少？",
+      "type": "number",
+      "answer": 2,
+      "tolerance": 0.001,
+      "unit": "S =",
+      "hint": "首项是 1，公比 q=1/2，使用 1/(1−q)。",
+      "explanation": "和为 2。因为 |q|=1/2<1，使用几何级数公式 1/(1−1/2)=2。"
+    },
+    {
+      "id": "ser-2",
+      "title": "趋于零，就一定收敛？",
+      "body": "调和级数 Σ1/k 的每一项趋于 0。它是否收敛？",
+      "type": "choice",
+      "choices": [
+        "收敛到 0",
+        "收敛到 1",
+        "发散，部分和无界"
+      ],
+      "answer": 2,
+      "hint": "把项按 2、4、8……的数量分组。",
+      "explanation": "调和级数发散。通项趋于零只是必要条件；按翻倍分组后，每组仍至少贡献 1/2。"
+    },
+    {
+      "id": "ser-3",
+      "title": "不能遗漏的边界",
+      "body": "几何级数 Σqᵏ（k 从 0 起）在什么条件下收敛？",
+      "type": "choice",
+      "choices": [
+        "|q| ≤ 1",
+        "|q| < 1",
+        "q < 1"
+      ],
+      "answer": 1,
+      "hint": "分别试试 q=1、q=−1 和 q=−1.2。",
+      "explanation": "当且仅当 |q|<1 时收敛。q=1 时无界，q=−1 时振荡；q<−1 也发散。"
+    }
+  ]
+}

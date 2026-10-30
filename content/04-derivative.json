@@ -1,0 +1,247 @@
+{
+  "id": "derivative",
+  "renderer": "derivative",
+  "number": "03",
+  "title": "导数与微分",
+  "en": "DERIVATIVES",
+  "navSubtitle": "教材第3章 · 期中",
+  "subtitle": "把一段变化，缩成一个瞬间。",
+  "description": "缩小两点之间的距离，观察左右割线能否靠近同一条切线。",
+  "chartTitle": "让瞬时变化率，显现出来",
+  "chartSubtitle": "曲线、左右割线和切线，一起解释导数。",
+  "defaults": {
+    "a": 1,
+    "h": 0.5
+  },
+  "definition": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>f</mi><mo>′</mo><mo>(</mo><mi>a</mi><mo>)</mo><mo>=</mo><munder><mo>lim</mo><mrow><mi>h</mi><mo>→</mo><mn>0</mn></mrow></munder><mfrac><mrow><mi>f</mi><mo>(</mo><mi>a</mi><mo>+</mo><mi>h</mi><mo>)</mo><mo>−</mo><mi>f</mi><mo>(</mo><mi>a</mi><mo>)</mo></mrow><mrow><mi>h</mi></mrow></mfrac></math>",
+  "concept": "导数是差商的双侧极限。可导一定连续，连续却不一定可导；微分 dy=f′(a)dx 是局部线性近似。",
+  "models": [
+    {
+      "id": "square",
+      "label": "平方函数",
+      "short": "x²",
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><msup><mi>x</mi><mrow><mn>2</mn></mrow></msup></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>f</mi><mo>′</mo><mo>(</mo><mi>a</mi><mo>)</mo><mo>=</mo><mn>2</mn><mi>a</mi></math>",
+      "steps": [
+        [
+          "先看平均变化",
+          "连接 A=(a,a²) 和 B=(a+h,(a+h)²)，割线斜率为 [(a+h)²−a²]/h=2a+h。"
+        ],
+        [
+          "从两个方向缩小 h",
+          "右割线的斜率为 2a+h，左割线为 2a−h。正的距离 h 缩小时，两边都靠近 2a。"
+        ],
+        [
+          "得到切线与导数",
+          "左右差商有同一个极限，所以 f′(a)=2a。切线为 y=a²+2a(x−a)。拖动 a，观察不同位置的导数。"
+        ],
+        [
+          "用微分估计变化",
+          "当增量 dx 很小时，Δy≈dy=2a·dx。实际 Δy=2a·dx+(dx)²，二次项解释了近似误差。"
+        ]
+      ],
+      "economics": [
+        "边际成本，就是瞬时变化率",
+        "若成本 C(q)=q²，则边际成本 C′(q)=2q。在小幅增加产量时，总成本的变化可近似为 2q·Δq；这是一阶近似，不是任意增量下的精确公式。"
+      ]
+    },
+    {
+      "id": "exponential",
+      "label": "指数增长",
+      "short": "eˣ",
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><msup><mi>e</mi><mrow><mi>x</mi></mrow></msup></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>f</mi><mo>′</mo><mo>(</mo><mi>a</mi><mo>)</mo><mo>=</mo><msup><mi>e</mi><mrow><mi>a</mi></mrow></msup></math>",
+      "steps": [
+        [
+          "把函数值看作规模",
+          "eˣ 随 x 增大而增大，图形越来越陡。导数衡量该点的增长速度。"
+        ],
+        [
+          "观察两侧差商",
+          "右差商为 eᵃ(eʰ−1)/h，左差商为 eᵃ(1−e⁻ʰ)/h。缩小 h，两者都趋于 eᵃ。"
+        ],
+        [
+          "增长率等于自身",
+          "(eˣ)′=eˣ。在每一个点，切线斜率与函数值相同。"
+        ],
+        [
+          "注意复合函数的系数",
+          "对于 Peʳᵗ，关于 t 的导数是 rPeʳᵗ，而非仅 Peʳᵗ。需要乘上指数内部的导数 r。"
+        ]
+      ],
+      "economics": [
+        "连续复利的即时收益",
+        "资产余额 B(t)=Peʳᵗ 时，瞬时收益 B′(t)=rB(t)。规模越大，在相同增长率下的即时增量越大。"
+      ]
+    },
+    {
+      "id": "absolute",
+      "label": "连续但不可导",
+      "short": "|x|",
+      "defaults": {
+        "a": 0
+      },
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mo>|</mo><mi>x</mi><mo>|</mo></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>f 在 0 处连续，但不可导</mtext></math>",
+      "steps": [
+        [
+          "看见尖点",
+          "|x| 在 0 处左右函数值都趋近 0，所以它连续。连续并不意味着图像没有尖点。"
+        ],
+        [
+          "分别计算两侧斜率",
+          "a=0 时，左差商恒为 −1，右差商恒为 1；无论 h 多小，它们都不接近同一个值。"
+        ],
+        [
+          "拒绝虚假的切线",
+          "左右导数不相等，因此 0 处不存在导数，也没有唯一的普通切线。图中此时不画切线。"
+        ],
+        [
+          "离开尖点再观察",
+          "把 a 调离 0，若 h 足够小且两点落在同一侧，就能看到导数为 −1 或 1。"
+        ]
+      ],
+      "economics": [
+        "分段规则中的边际效应",
+        "绝对值损失、分段收费等模型可能包含尖点。遇到这类点，要检查左右导数，不能直接把“连续”当成“可导”。"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "der-1",
+      "title": "求一个点的变化率",
+      "body": "f(x)=x²，f′(3) 等于多少？",
+      "type": "number",
+      "answer": 6,
+      "hint": "先写出 f′(x)=2x。",
+      "explanation": "f′(3)=2×3=6。导数是在指定点的瞬时变化率。",
+      "tolerance": 0.001,
+      "unit": "答案 =",
+      "section": "3.1"
+    },
+    {
+      "id": "der-2",
+      "title": "连续一定可导吗？",
+      "body": "f(x)=|x| 在 x=0 处有什么性质？",
+      "type": "choice",
+      "answer": 1,
+      "hint": "比较左右导数 −1 与 1。",
+      "explanation": "它连续，但左导数 −1 不等于右导数 1，所以不可导。",
+      "choices": [
+        "连续且可导",
+        "连续但不可导",
+        "不连续"
+      ],
+      "section": "3.1"
+    },
+    {
+      "id": "der-3",
+      "title": "微分与实际增量",
+      "body": "f(x)=x²，在 x=2 处取 dx=0.1，微分 dy 是多少？",
+      "type": "number",
+      "answer": 0.4,
+      "hint": "使用 dy=f′(2)dx。",
+      "explanation": "dy=4×0.1=0.4。实际增量为 2.1²−2²=0.41，两者相差 (dx)²=0.01。",
+      "tolerance": 0.001,
+      "unit": "答案 =",
+      "section": "3.5"
+    },
+    {
+      "id": "der-4",
+      "title": "链式求导",
+      "body": "y=ln(1+x²)，在 x=1 时 y′ 等于多少？",
+      "type": "number",
+      "answer": 1,
+      "hint": "y′=2x/(1+x²)。",
+      "explanation": "代入 x=1，得到 2/2=1。内层导数 2x 不能漏掉。",
+      "tolerance": 0.001,
+      "unit": "答案 =",
+      "section": "3.2"
+    },
+    {
+      "id": "der-5",
+      "title": "乘积求导",
+      "body": "y=x·eˣ，在 x=0 处的导数是多少？",
+      "type": "number",
+      "answer": 1,
+      "hint": "y′=eˣ+x eˣ。",
+      "explanation": "导数为 (1+x)eˣ，x=0 时等于 1。",
+      "tolerance": 0.001,
+      "unit": "答案 =",
+      "section": "3.2"
+    },
+    {
+      "id": "der-6",
+      "title": "二阶导数",
+      "body": "y=x⁴，在 x=2 处 y″ 是多少？",
+      "type": "number",
+      "answer": 48,
+      "hint": "先后求两次导数。",
+      "explanation": "y′=4x³，y″=12x²，代入得到 48。",
+      "tolerance": 0.001,
+      "unit": "答案 =",
+      "section": "3.3"
+    },
+    {
+      "id": "der-7",
+      "title": "隐函数求导",
+      "body": "x²+y²=25，在点 (3,4) 处 dy/dx 是多少？",
+      "type": "number",
+      "answer": -0.75,
+      "hint": "对 x 求导：2x+2y·y′=0。",
+      "explanation": "y′=−x/y=−3/4。这里 y=4≠0，可以相除。",
+      "tolerance": 0.001,
+      "unit": "答案 =",
+      "section": "3.4"
+    },
+    {
+      "id": "der-8",
+      "title": "参数方程求导",
+      "body": "x=t²，y=t³。在 t=2 处 dy/dx 是多少？",
+      "type": "number",
+      "answer": 3,
+      "hint": "dy/dx=(3t²)/(2t)，且 t≠0。",
+      "explanation": "t=2 时 dx/dt=4，dy/dt=12，所以 dy/dx=3。",
+      "tolerance": 0.001,
+      "unit": "答案 =",
+      "section": "3.4"
+    },
+    {
+      "id": "der-9",
+      "title": "相关变化率",
+      "body": "正方形边长 s 随时间增长，当前 s=3、ds/dt=2。面积 A 的变化率 dA/dt 是多少？",
+      "type": "number",
+      "answer": 12,
+      "hint": "A=s²，对时间求导。",
+      "explanation": "dA/dt=2s·ds/dt=2×3×2=12。",
+      "tolerance": 0.001,
+      "unit": "答案 =",
+      "section": "3.4"
+    },
+    {
+      "id": "der-10",
+      "title": "微分近似",
+      "body": "用 x=4 处的线性近似估计 √4.04，结果是多少？",
+      "type": "number",
+      "answer": 2.01,
+      "hint": "√x 在 4 处的导数为 1/4。",
+      "explanation": "√4.04≈2+(1/4)×0.04=2.01。",
+      "tolerance": 0.001,
+      "unit": "答案 =",
+      "section": "3.5"
+    },
+    {
+      "id": "der-11",
+      "title": "边际与平均的区别",
+      "body": "总成本 C(q)=16+2q+q²，在 q=2 时边际成本是多少？",
+      "type": "number",
+      "answer": 6,
+      "hint": "边际成本为 C′(q)，不是 C(q)/q。",
+      "explanation": "MC=2+2q，q=2 时等于 6；平均成本此时为 12。",
+      "tolerance": 0.001,
+      "unit": "答案 =",
+      "section": "3.6"
+    }
+  ]
+}

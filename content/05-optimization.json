@@ -1,0 +1,161 @@
+{
+  "id": "optimization",
+  "renderer": "optimization",
+  "number": "3/4",
+  "title": "边际与弹性",
+  "en": "ECONOMIC APPLICATIONS",
+  "navSubtitle": "含第4章优化预习",
+  "subtitle": "从一条切线，走向一个更好的决策。",
+  "description": "改变成本与产量，观察边际量、最优点和需求弹性的联系。",
+  "chartTitle": "让最优选择，有据可循",
+  "chartSubtitle": "移动当前选择，比较目标值、边际变化和解析最优点。",
+  "defaults": {
+    "x": 4,
+    "parameter": 4
+  },
+  "definition": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>π</mi><mo>′</mo><mo>(</mo><mi>q</mi><mo>)</mo><mo>=</mo><mi>MR</mi><mo>−</mo><mi>MC</mi></math>",
+  "concept": "内点最优通常需要一阶条件，还要检查二阶条件、可行区间和端点。驻点不一定是最大值。",
+  "models": [
+    {
+      "id": "profit",
+      "label": "利润最大化",
+      "short": "MR = MC",
+      "defaults": {
+        "x": 4,
+        "parameter": 4
+      },
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>π(q)=(20−c)q−q²−20</mtext></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>q*=(20−c)/2，0≤c≤20</mtext></math>",
+      "steps": [
+        [
+          "先写收入与成本",
+          "设价格 P(q)=20−q，总成本 C(q)=cq+20，0≤q≤20。收入 R(q)=20q−q²，利润为 R−C。"
+        ],
+        [
+          "比较边际收入与成本",
+          "π′(q)=20−2q−c。它为正时，小幅增产可提高利润；为负时，小幅减产更有利。"
+        ],
+        [
+          "求驻点并验证",
+          "解 π′(q)=0 得 q*=(20−c)/2。π″(q)=−2<0，且利润函数严格凹，故可行区间上的最优点唯一。"
+        ],
+        [
+          "别忽略端点与亏损",
+          "c=20 时最优点是 q=0。固定成本 20 使最大利润也可能为负。这里固定成本已发生、停产时仍支付；不讨论可避免固定成本的长期退出决策。"
+        ]
+      ],
+      "economics": [
+        "固定成本与边际成本分工不同",
+        "本模型中，固定成本只把利润曲线整体下移，不改变最优产量；单位可变成本 c 增加则使最优产量下降。结论依赖固定成本不可避免这一假设。"
+      ]
+    },
+    {
+      "id": "averageCost",
+      "label": "平均成本最低",
+      "short": "MC = AC",
+      "defaults": {
+        "x": 4,
+        "parameter": 16
+      },
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>AC(q)=F/q+2+q，q&gt;0</mtext></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>q*=√F，MC(q*)=AC(q*)</mtext></math>",
+      "steps": [
+        [
+          "区分总成本与平均成本",
+          "设 C(q)=F+2q+q²，则平均成本 AC(q)=F/q+2+q，边际成本 MC(q)=2+2q。"
+        ],
+        [
+          "观察摊薄与拥挤效应",
+          "F/q 随产量下降，而 q 项随产量上升，两种力量让平均成本出现最低点。"
+        ],
+        [
+          "求平均成本的导数",
+          "AC′(q)=1−F/q²，令其等于 0 得 q*=√F。AC″(q)=2F/q³>0，故此处为最小值。"
+        ],
+        [
+          "连接 MC 与 AC",
+          "在最低点，MC=AC。一般地，AC′(q)=[MC(q)−AC(q)]/q，边际成本低于平均成本时会把平均成本拉低。"
+        ]
+      ],
+      "economics": [
+        "规模经济的一个入门例子",
+        "改变固定成本 F，观察最低平均成本对应的产量如何变化。这是一个简化模型，不代表所有行业的长期成本结构。"
+      ]
+    },
+    {
+      "id": "elasticity",
+      "label": "弹性与收入",
+      "short": "|E| = 1",
+      "defaults": {
+        "x": 4,
+        "parameter": 1
+      },
+      "formula": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>Q(P)=20−bP，R(P)=P·Q(P)</mtext></math>",
+      "result": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mtext>P*=10/b，此时需求弹性绝对值为 1</mtext></math>",
+      "steps": [
+        [
+          "先限定经济含义",
+          "b>0，需求 Q=20−bP。实验只取 Q>0 的价格；需求为 0 时弹性表达式无定义。"
+        ],
+        [
+          "计算弹性绝对值",
+          "本例展示需求价格弹性的绝对值：|E|=bP/(20−bP)。它衡量需求的相对变化对价格相对变化的敏感程度。"
+        ],
+        [
+          "把弹性与收入导数相连",
+          "R′(P)=20−2bP=Q(1−|E|)。|E|<1 时小幅提价增加收入；|E|>1 时小幅提价减少收入。"
+        ],
+        [
+          "验证收入最大点",
+          "|E|=1 时 P*=10/b，且 R″(P)=−2b<0，所以此时总收入最大。收入最大不等同于利润最大。"
+        ]
+      ],
+      "economics": [
+        "提价会增加收入吗？",
+        "答案取决于需求弹性，而不只是销量下降。此处分析总收入；若还要分析利润，必须把成本一并考虑。"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "opt-1",
+      "title": "找到利润最大产量",
+      "body": "π(q)=16q−q²−20，q≥0。使利润最大的 q 是多少？",
+      "type": "number",
+      "answer": 8,
+      "hint": "令 π′(q)=16−2q=0，并检查二阶导数。",
+      "explanation": "q*=8。π″=−2<0，且函数严格凹，因此是最大值点。",
+      "tolerance": 0.001,
+      "unit": "答案 ="
+    },
+    {
+      "id": "opt-2",
+      "title": "平均成本最低的信号",
+      "body": "在可微的内点，平均成本达到最低时，哪项关系成立？",
+      "type": "choice",
+      "answer": 0,
+      "hint": "对 AC=C/q 使用求导法则。",
+      "explanation": "AC′=(MC−AC)/q。内点最低处 AC′=0，因此 MC=AC。",
+      "choices": [
+        "MC=AC",
+        "总成本为 0",
+        "边际成本必为 0"
+      ]
+    },
+    {
+      "id": "opt-3",
+      "title": "弹性与提价",
+      "body": "需求弹性绝对值为 1.5 时，小幅提价对总收入的影响是？",
+      "type": "choice",
+      "answer": 1,
+      "hint": "R′=Q(1−|E|)。",
+      "explanation": "|E|>1 时收入导数为负，小幅提价使总收入下降。",
+      "choices": [
+        "增加",
+        "减少",
+        "一定不变"
+      ],
+      "section": "3.6"
+    }
+  ]
+}

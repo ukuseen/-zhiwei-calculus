@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#176853">
+  <meta name="description" content="知微：为经济学初学者打造的中文高数实验室。优先学习函数、极限与连续性、导数与微分，提供动态图、90 道期中题及错题复习。">
+  <title>知微 · 高数可视化实验室</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="math.js" defer></script>
+  <script src="lessons.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div id="startup-notice" class="startup-notice" role="status"><strong>如果按钮无法点击，请先下载此文件，再用浏览器打开。</strong><span>聊天窗口、网盘或文件管理器的“预览”可能不运行交互。请使用 Chrome、Edge 或 Safari 打开下载后的 HTML 文件。</span></div>
+  <a class="skip-link" href="#main">跳到学习内容</a>
+  <aside class="sidebar" aria-label="学习空间导航">
+    <a class="brand" href="#main" aria-label="回到学习内容"><span class="brand-mark">∞</span><span><strong>知微<span class="brand-dot">.</span></strong><small>让数学，变得可见</small></span></a>
+    <div class="workspace-label">你的数学实验室 <span>入门</span></div>
+    <div class="nav-label">学习专题 <span id="chapter-total"></span></div>
+    <nav class="chapter-nav" aria-label="章节">
+      <button class="chapter-button active" data-chapter="sequence" aria-current="page"><span class="nav-number">01</span><span>数列极限<small>从有限走向无限</small></span><span class="nav-arrow">›</span></button>
+      <button class="chapter-button" data-chapter="function"><span class="nav-number">02</span><span>函数极限<small>理解无限趋近</small></span><span class="nav-arrow">›</span></button>
+      <button class="chapter-button" data-chapter="series"><span class="nav-number">03</span><span>无穷级数<small>探索累加的边界</small></span><span class="nav-arrow">›</span></button>
+    </nav>
+    <div class="nav-divider"></div>
+    <button class="side-link" id="guide-button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6a3 3 0 0 1 3 3v14a4 4 0 0 0-4-3H4zm16 0h-4a3 3 0 0 0-3 3v14a4 4 0 0 1 4-3h3z"/></svg>使用指南<span>↗</span></button>
+    <button class="side-link" id="progress-button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V10m7 10V4m7 16v-7"/></svg>学习记录<span id="side-count">0/9</span></button>
+    <div class="sidebar-bottom">
+      <div class="journey-card"><div class="journey-icon">✦</div><strong>每一步，都算数。</strong><p>先观察，再思考。<br>用自己的节奏理解数学。</p><div class="progress-track"><span id="total-progress"></span></div><small id="total-progress-label">已掌握 0 / 9 道练习</small></div>
+      <div class="student"><span class="student-avatar">知</span><span>我的学习空间<small>经济学 · 大一</small></span><span class="student-dot"></span></div>
+    </div>
+  </aside>
+  <div class="page">
+    <header class="topbar"><div class="breadcrumb"><span class="home-icon">⌂</span><span>学习空间</span><span class="slash">/</span><strong id="breadcrumb-current">数列极限</strong></div><div class="topbar-right"><span class="offline-badge"><i></i>在线学习 · 离线备份</span><span class="edition">期中篇 · VOL. 03</span></div></header>
+    <main id="main">
+      <section class="study-route" aria-label="教材备考路线">
+        <div><span class="section-overline">高等数学 · 分阶段学习</span><h2>先拿下期中前三章</h2><p>函数 → 极限与连续性 → 导数与微分</p></div>
+        <button class="button primary" id="review-button">期中练习与错题 <span>→</span></button>
+        <button class="button secondary" id="syllabus-button">18 节复习清单 <span>↗</span></button>
+        <button class="button secondary" id="roadmap-button">期末全书路线</button>
+      </section>
+      <section class="page-heading">
+        <div><div class="eyebrow"><span id="chapter-label">CHAPTER 01</span><span class="eyebrow-line"></span><span id="chapter-english">SEQUENCE LIMITS</span></div><h1 id="chapter-title">数列极限<span class="title-dot">.</span></h1><p id="chapter-subtitle">一项一项，靠近一个确定的值。</p></div>
+        <button class="button practice-jump" id="practice-jump">检验一下理解 <span>↗</span></button>
+      </section>
+      <section class="learning-banner" aria-label="学习提示"><div class="banner-symbol">↗</div><p><strong>数学的直觉，从动手开始。</strong><span id="chapter-description">拖动滑块，让抽象的「无限趋近」变成看得见的过程。</span></p><span class="banner-note">观察 → 理解 → 应用</span></section>
+      <div class="model-bar"><span class="section-overline">选择一个例子</span><div id="model-tabs" class="model-tabs" role="group" aria-label="选择数学模型"></div></div>
+      <section class="lab-layout" aria-label="交互实验">
+        <div class="visual-card">
+          <div class="visual-heading"><div><h2 id="chart-title">让收敛，变得可见</h2><p id="chart-subtitle">每一个点，都是数列中的一项。</p></div><span class="live-tag"><i></i>交互视图</span></div>
+          <div class="formula-strip"><div id="model-formula"></div><span id="chart-caption">n → ∞</span></div>
+          <div class="chart-wrap"><svg id="chart" viewBox="0 0 720 330" role="img" aria-labelledby="graph-title graph-description"><title id="graph-title">数列可视化</title><desc id="graph-description">通过调节参数探索数学变化。</desc></svg></div>
+          <div class="chart-legend" id="chart-legend"></div>
+          <div id="metrics" class="metrics" aria-live="off"></div>
+          <div class="chart-footnote"><span>ⓘ</span><span id="chart-footnote">有限图像帮助建立直觉；收敛结论需要数学论证。</span></div>
+        </div>
+        <aside class="control-card" aria-label="实验参数">
+          <div class="control-heading"><h2><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="15" cy="17" r="3"/></svg>实验参数</h2><button class="icon-button" id="reset-button" title="重置当前实验" aria-label="重置当前实验">↺</button></div>
+          <div id="controls"></div>
+          <div class="animation-controls"><button id="play-button" class="button primary"><span class="play-icon">▶</span>自动演示</button><button id="step-button" class="button secondary" title="推进一次">单步 <span>→</span></button></div>
+          <p class="control-tip" id="control-tip">试着减小 ε，看看 N 如何变化。</p>
+          <div class="observation"><span class="section-overline"><i></i>此刻的发现</span><p id="observation"></p></div>
+          <div class="key-result"><span>数学结论</span><div id="result-formula"></div></div>
+        </aside>
+      </section>
+      <section class="insights-row">
+        <article class="walkthrough-card"><div class="card-topline"><div><span class="mini-icon">▤</span><h2>一步一步，理解它</h2></div><span id="step-count">01 / 04</span></div><div class="walkthrough-body"><div id="walkthrough-number">01</div><div><h3 id="walkthrough-title"></h3><p id="walkthrough-text"></p></div></div><div class="walkthrough-bottom"><div class="step-dots" id="step-dots" role="group" aria-label="讲解步骤"></div><div><button class="text-button" id="previous-explanation" aria-label="上一步讲解">←</button><button class="text-button" id="next-explanation">下一步 <span>→</span></button></div></div></article>
+        <article class="economics-card"><div class="card-topline"><div><span class="mini-icon">↗</span><h2>在经济学里，相遇</h2></div><span class="small-tag">学以致用</span></div><h3 id="economics-title"></h3><p id="economics-body"></p><div class="economics-decoration" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></article>
+      </section>
+      <section class="definition-card"><span class="definition-label">把直觉写成定义</span><div id="definition-formula"></div><p id="definition-text"></p></section>
+      <section id="practice" class="practice-section" tabindex="-1"><div class="practice-heading"><div><span class="section-overline">LEARNING BY DOING</span><h2>现在，轮到你了<span>小练习，大理解</span></h2></div><span class="practice-progress" id="practice-progress">本章已完成 0 / 3</span></div><div class="exercise-card"><div class="exercise-main"><div class="exercise-topline"><span class="question-label" id="question-label">练习 01</span><div id="question-tabs" role="group" aria-label="选择练习题"></div></div><h3 id="question-title"></h3><p id="question-body"></p><form id="answer-form"><div id="answer-fields"></div><div class="answer-actions"><button type="submit" class="button primary">检查答案 <span>→</span></button><button type="button" class="text-button" id="hint-button">给我一点提示</button><button type="button" class="text-button" id="next-question">下一题 →</button></div></form><p id="hint-text" class="hint" hidden></p><div id="answer-feedback" class="feedback" role="status" hidden></div></div><aside class="exercise-note"><span class="note-spark">✳</span><h3>不急着给出答案</h3><p>先猜一猜，再回到图中验证。<br>答错，也是理解的一部分。</p><span>每一次思考，都离理解更近。</span></aside></div></section>
+      <footer><span class="footer-brand">知微<span>.</span> <small>从看见，到理解。</small></span><span>为好奇心而设计 · 高等数学基础篇</span><span>所有进度仅保存在本机</span></footer>
+    </main>
+  </div>
+  <input type="file" id="progress-file" accept="application/json,.json" hidden>
+  <dialog id="info-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span class="section-overline">知微 · 学习空间</span><button id="close-dialog" class="icon-button" aria-label="关闭弹窗">×</button></div><h2 id="dialog-title"></h2><div id="dialog-body"></div><button class="button primary" id="dialog-done">继续探索 →</button></dialog>
+  <noscript>请启用 JavaScript 来使用参数滑块、动态图和练习。本网站不需要联网。</noscript>
+</body>
+</html>
